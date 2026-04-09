@@ -4,18 +4,20 @@ import logoImage from './assets/logo.png';
 
 // --- AETHELTECH LIVE DISTRIBUTION CONFIG ---
 const PAYPAL_CLIENT_ID = "Abgwsr6qsjiL2-XxFmQ_6qSAqHuyHziiBgFB9Wnht4wEa8rSg-KTbCQjqnlORLThwqooe_A5jaCMq0nh";
-const PRO_PLAN_ID = "P-5ML4271244454362WM36FGRY"; 
+const GAMING_PLAN_ID = "P-5ML4271244454362WM36FGRY"; 
+const AI_MONTHLY_PLAN_ID = "P-YOUR_NEW_AI_PLAN_ID_HERE"; // ⚡ Create a €4.99/mo plan in PayPal and paste ID here
 
 const DOWNLOAD_LINKS = {
-  // LINK VERIFIED: 2026-01-20
   nexus: "https://github.com/aetheltech-lab/Nexus_Gaming_Distro/releases/download/v1.4.2/Nexus.Prime.1.0.0.exe",
-  ai: "#" // Sector Locked: Sanitization in Progress
+  ai: "https://github.com/aetheltech-lab/Nexus_AI_Distro/releases/latest" 
 };
 
 const App = () => {
   const [activeApp, setActiveApp] = useState('nexus');
   const [showPatchNotes, setShowPatchNotes] = useState(false);
   const [isHoveringNews, setIsHoveringNews] = useState(false);
+  const [purchasedKey, setPurchasedKey] = useState(null); 
+  const [billingCycle, setBillingCycle] = useState('lifetime'); // ⚡ NEW: Toggle State ('monthly' or 'lifetime')
   const scrollRef = useRef(null);
 
   const apps = {
@@ -23,6 +25,7 @@ const App = () => {
       id: 'nexus', name: 'NEXUS GAMING', tagline: 'GAMING DEVELOPMENT PLATFORM', version: 'v1.4.2', color: '#06b6d4', 
       bg: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=2070',
       showPaypal: true,
+      priceText: 'UNLOCK PRO FEATURES • €9.99 / MO',
       news: [
         { title: 'GENESIS PROTOCOL', desc: 'Draenei mesh integration complete.', tag: '3D UPDATE' },
         { title: 'KRIOS CHRONICLES', desc: 'New branching narrative nodes added.', tag: 'NARRATIVE' },
@@ -33,27 +36,22 @@ const App = () => {
     'nexus-ai': {
       id: 'nexus-ai', name: 'NEXUS AI', tagline: 'ARTIFICIAL INTELLIGENCE PLATFORM', version: 'v2.1.0', color: '#a855f7', 
       bg: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=2070',
-      showPaypal: false,
+      showPaypal: true, 
       news: [
-        { title: 'NEURAL SYNC v2', desc: 'Optimized Llama 3 response latency.', tag: 'CORE' },
-        { title: 'HEARING AID', desc: 'Advanced phonetic autocorrect online.', tag: 'VOICE' }
+        { title: 'LIVE BRIDGE ONLINE', desc: 'Zero-latency voice neural connection active.', tag: 'CORE' },
+        { title: 'CUSTOM DICTIONARY', desc: 'Create and execute your own OS protocols.', tag: 'SYSTEM' }
       ],
-      logs: [{ date: '2026-01-19', ver: 'v2.1.0', note: 'Renamed to Nexus AI. Trademark Shield active.' }]
+      logs: [
+        { date: '2026-04-09', ver: 'v3.0.0', note: 'Commercial Gateway and License Generation Live.' },
+        { date: '2026-01-19', ver: 'v2.1.0', note: 'Renamed to Nexus AI. Trademark Shield active.' }
+      ]
     }
   };
 
   const current = apps[activeApp];
 
   const handleDownload = () => {
-    const downloadUrl = activeApp === 'nexus' ? DOWNLOAD_LINKS.nexus : DOWNLOAD_LINKS.ai;
-    
-    if (downloadUrl === "#") {
-      alert("Sir, the Nexus AI public build is currently undergoing sanitization. Please stand by.");
-      return;
-    }
-
-    // Protocol: Direct Handshake with Aetheltech GitHub Node
-    window.location.href = downloadUrl;
+    window.location.href = activeApp === 'nexus' ? DOWNLOAD_LINKS.nexus : DOWNLOAD_LINKS.ai;
   };
 
   const scrollNews = (direction) => {
@@ -64,6 +62,29 @@ const App = () => {
     }
   };
 
+  // ⚡ GENERATE SECURE 16-DIGIT LICENSE KEY
+  const generateLicenseKey = () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let key = 'NEX-';
+    for (let i = 0; i < 12; i++) {
+      if (i > 0 && i % 4 === 0) key += '-';
+      key += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return key;
+  };
+
+  // ⚡ PAYPAL ON-APPROVE LOGIC (Handles both Subscriptions and Orders)
+  const handleApprove = (data, actions, isSubscription) => {
+    const captureAction = isSubscription ? actions.subscription.get() : actions.order.capture();
+    
+    return captureAction.then((details) => {
+      console.log("Transaction completed!");
+      const newKey = generateLicenseKey();
+      setPurchasedKey(newKey);
+      // Firebase injection will go here
+    });
+  };
+
   return (
     <div style={styles.fullscreenWrapper}>
       <style>{`
@@ -72,10 +93,12 @@ const App = () => {
         .internal-scroll { -ms-overflow-style: none; scrollbar-width: none; }
         @keyframes glow { 0% { opacity: 0.15; } 50% { opacity: 0.45; } 100% { opacity: 0.15; } }
         @keyframes intenseGlow { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+        @keyframes pulseBorder { 0% { border-color: rgba(168, 85, 247, 0.4); } 50% { border-color: rgba(168, 85, 247, 1); box-shadow: 0 0 20px rgba(168,85,247,0.5); } 100% { border-color: rgba(168, 85, 247, 0.4); } }
         .news-card { transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.05); }
         .news-card:hover { border-color: ${current.color} !important; background: rgba(255,255,255,0.08) !important; transform: scale(1.02); }
         .nav-arrow:hover { background: ${current.color} !important; color: black !important; box-shadow: 0 0 20px ${current.color}; }
         .action-btn:hover { filter: brightness(1.2); transform: translateY(-2px); }
+        .toggle-btn { flex: 1; padding: 10px; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1rem; cursor: pointer; transition: all 0.3s; text-align: center; border: 1px solid transparent; }
       `}</style>
 
       <div style={{...styles.heroBackground, backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.95)), url(${current.bg})`}}></div>
@@ -90,8 +113,8 @@ const App = () => {
       <nav style={styles.sidebar}>
         <img src={logoImage} alt="Aetheltech" style={{...styles.sidebarLogo, filter: `drop-shadow(0 0 10px ${current.color})` }} />
         <div style={styles.navDivider}></div>
-        <button onClick={() => setActiveApp('nexus')} style={activeApp === 'nexus' ? {...styles.navBtn, borderColor: '#06b6d4'} : styles.navBtn}>NX</button>
-        <button onClick={() => setActiveApp('nexus-ai')} style={activeApp === 'nexus-ai' ? {...styles.navBtn, borderColor: '#a855f7'} : styles.navBtn}>AI</button>
+        <button onClick={() => {setActiveApp('nexus'); setPurchasedKey(null);}} style={activeApp === 'nexus' ? {...styles.navBtn, borderColor: '#06b6d4'} : styles.navBtn}>NX</button>
+        <button onClick={() => {setActiveApp('nexus-ai'); setPurchasedKey(null);}} style={activeApp === 'nexus-ai' ? {...styles.navBtn, borderColor: '#a855f7'} : styles.navBtn}>AI</button>
         <button onClick={() => setShowPatchNotes(!showPatchNotes)} style={styles.patchToggle}>📜</button>
       </nav>
 
@@ -135,17 +158,95 @@ const App = () => {
             </div>
             
             <div style={styles.buttonGrid}>
-                <button className="action-btn" style={{...styles.launchBtn, background: current.color}}>LAUNCH PLATFORM</button>
-                <button onClick={handleDownload} className="action-btn" style={styles.downloadBtn}>DOWNLOAD INSTALLER</button>
+                {activeApp === 'nexus' && <button className="action-btn" style={{...styles.launchBtn, background: current.color}}>LAUNCH PLATFORM</button>}
+                <button onClick={handleDownload} className="action-btn" style={{...styles.downloadBtn, flex: activeApp === 'nexus-ai' ? 3 : 1, border: `1px solid ${current.color}`}}>
+                  DOWNLOAD INSTALLER
+                </button>
             </div>
 
-            {current.showPaypal && (
-              <div style={styles.paypalWrapper}>
-                <div style={styles.priceTag}>UNLOCK PRO FEATURES • €9.99 / MO</div>
-                <PayPalScriptProvider options={{ "client-id": PAYPAL_CLIENT_ID, vault: true, currency: "EUR" }}>
-                  <PayPalButtons style={{ shape: 'pill', color: 'blue', layout: 'vertical', label: 'subscribe' }} createSubscription={(data, actions) => actions.subscription.create({ 'plan_id': PRO_PLAN_ID })} />
-                </PayPalScriptProvider>
+            {purchasedKey ? (
+              <div style={styles.successBox}>
+                <h3 style={{ color: '#a855f7', margin: '0 0 10px 0', letterSpacing: '0.2rem' }}>PAYMENT SUCCESSFUL</h3>
+                <p style={{ fontSize: '0.8rem', color: '#ccc', marginBottom: '15px' }}>
+                  Please copy your Pro License Key immediately. Enter this in the Nexus AI Settings.
+                </p>
+                <div style={styles.keyDisplay}>{purchasedKey}</div>
+                <p style={{ fontSize: '0.7rem', color: '#666', marginTop: '15px' }}>Registered to Aetheltech Database.</p>
               </div>
+            ) : (
+              current.showPaypal && (
+                <div style={styles.paypalWrapper}>
+                  
+                  {/* ⚡ NEXUS AI TOGGLE UI */}
+                  {activeApp === 'nexus-ai' ? (
+                    <div style={{ marginBottom: '20px' }}>
+                      <div style={{ display: 'flex', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', overflow: 'hidden', border: `1px solid ${current.color}44` }}>
+                        <div 
+                          className="toggle-btn"
+                          onClick={() => setBillingCycle('monthly')}
+                          style={{ 
+                            background: billingCycle === 'monthly' ? `${current.color}33` : 'transparent',
+                            color: billingCycle === 'monthly' ? '#fff' : '#666',
+                            borderRight: `1px solid ${current.color}44`
+                          }}>
+                          MONTHLY (€4.99)
+                        </div>
+                        <div 
+                          className="toggle-btn"
+                          onClick={() => setBillingCycle('lifetime')}
+                          style={{ 
+                            background: billingCycle === 'lifetime' ? `${current.color}33` : 'transparent',
+                            color: billingCycle === 'lifetime' ? '#fff' : '#666'
+                          }}>
+                          LIFETIME (€29.99)
+                        </div>
+                      </div>
+                      <div style={{ textAlign: 'center', fontSize: '0.65rem', color: current.color, marginTop: '10px', letterSpacing: '0.1rem' }}>
+                        {billingCycle === 'lifetime' ? 'PAY ONCE. OWN IT FOREVER. (BYOK)' : 'CANCEL ANYTIME. (BYOK)'}
+                      </div>
+                    </div>
+                  ) : (
+                    <div style={{...styles.priceTag, color: current.color}}>{current.priceText}</div>
+                  )}
+                  
+                  <PayPalScriptProvider options={{ "client-id": PAYPAL_CLIENT_ID, currency: "EUR", vault: activeApp === 'nexus' || billingCycle === 'monthly' }}>
+                    
+                    {/* NEXUS GAMING (SUBSCRIPTION) */}
+                    {activeApp === 'nexus' && (
+                      <PayPalButtons 
+                        style={{ shape: 'pill', color: 'blue', layout: 'vertical', label: 'subscribe' }} 
+                        createSubscription={(data, actions) => actions.subscription.create({ 'plan_id': GAMING_PLAN_ID })} 
+                        onApprove={(data, actions) => handleApprove(data, actions, true)}
+                      />
+                    )}
+
+                    {/* NEXUS AI (MONTHLY SUBSCRIPTION) */}
+                    {activeApp === 'nexus-ai' && billingCycle === 'monthly' && (
+                      <PayPalButtons 
+                        key="monthly-btn"
+                        style={{ shape: 'pill', color: 'black', layout: 'vertical', label: 'subscribe' }} 
+                        createSubscription={(data, actions) => actions.subscription.create({ 'plan_id': AI_MONTHLY_PLAN_ID })} 
+                        onApprove={(data, actions) => handleApprove(data, actions, true)}
+                      />
+                    )}
+
+                    {/* NEXUS AI (LIFETIME ONE-TIME) */}
+                    {activeApp === 'nexus-ai' && billingCycle === 'lifetime' && (
+                      <PayPalButtons 
+                        key="lifetime-btn"
+                        style={{ shape: 'pill', color: 'black', layout: 'vertical', label: 'checkout' }} 
+                        createOrder={(data, actions) => {
+                          return actions.order.create({
+                            purchase_units: [{ description: "Nexus AI Pro Lifetime", amount: { currency_code: "EUR", value: "29.99" } }]
+                          });
+                        }}
+                        onApprove={(data, actions) => handleApprove(data, actions, false)}
+                      />
+                    )}
+
+                  </PayPalScriptProvider>
+                </div>
+              )
             )}
           </div>
           <div style={{height: '10vh'}}></div>
@@ -198,7 +299,9 @@ const styles = {
   launchBtn: { flex: 2, padding: '18px', border: 'none', borderRadius: '18px', color: '#fff', fontWeight: '900', letterSpacing: '0.2rem', cursor: 'pointer', transition: '0.3s' },
   downloadBtn: { flex: 1, padding: '18px', background: 'transparent', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '18px', color: '#fff', fontSize: '0.7rem', fontWeight: 'bold', cursor: 'pointer', transition: '0.3s' },
   paypalWrapper: { borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '25px' },
-  priceTag: { fontSize: '0.7rem', color: '#06b6d4', marginBottom: '15px', fontWeight: 'bold' },
+  priceTag: { fontSize: '0.7rem', marginBottom: '15px', fontWeight: 'bold' },
+  successBox: { border: '2px solid rgba(168, 85, 247, 0.4)', borderRadius: '15px', padding: '30px', textAlign: 'center', background: 'rgba(168, 85, 247, 0.05)', animation: 'pulseBorder 2s infinite', marginTop: '20px' },
+  keyDisplay: { fontSize: '1.5rem', fontWeight: '900', letterSpacing: '0.3rem', color: '#fff', background: '#000', padding: '15px', borderRadius: '10px', border: '1px dashed #a855f7', userSelect: 'all' },
   patchNotes: { position: 'absolute', right: 0, top: 0, width: '380px', height: '100%', backgroundColor: 'rgba(5,5,5,0.98)', borderLeft: '1px solid rgba(255,255,255,0.05)', padding: '45px', zIndex: 25, transition: '0.4s' },
   logItem: { marginBottom: '30px', borderBottom: '1px solid rgba(255,255,255,0.02)', paddingBottom: '20px' },
   logHeader: { display: 'flex', justifyContent: 'space-between', marginBottom: '8px' },
