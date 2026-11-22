@@ -1,47 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Nexus AI</title>
-    <style>
-        body { font-family: 'Courier New', Courier, monospace; background-color: #000; color: #06b6d4; padding: 40px; line-height: 1.6; max-width: 800px; margin: 0 auto; }
-        h1, h2 { color: #fff; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid #06b6d4; padding-bottom: 10px; }
-        a { color: #a855f7; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .container { background: rgba(0, 0, 0, 0.8); border: 1px solid #06b6d4; padding: 30px; border-radius: 10px; box-shadow: 0 0 20px rgba(6, 182, 212, 0.2); }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy &amp; GDPR Notice | Aetheltech</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 48px 20px 80px;
+      background-color: #000000;
+      color: #d4d4d8;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7;
+    }
+    .wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      background-color: #050507;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 44px 40px;
+    }
+    .eyebrow {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: #06b6d4;
+      margin-bottom: 10px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+    .meta {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      color: #71717a;
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    h2 {
+      margin: 32px 0 12px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ffffff;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(6, 182, 212, 0.35);
+    }
+    p {
+      margin: 0 0 14px;
+      font-size: 14px;
+      color: #a1a1aa;
+    }
+    ul {
+      margin: 0 0 16px;
+      padding-left: 20px;
+      font-size: 14px;
+      color: #a1a1aa;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    strong {
+      color: #f4f4f5;
+    }
+    a {
+      color: #06b6d4;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .notice-box {
+      margin: 24px 0;
+      padding: 16px 20px;
+      background: rgba(6, 182, 212, 0.06);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      font-size: 13px;
+      color: #d4d4d8;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 10px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .back-link:hover {
+      background: #ffffff;
+      color: #000000;
+      text-decoration: none;
+    }
+    @media (max-width: 640px) {
+      .wrap { padding: 28px 20px; }
+      h1 { font-size: 21px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Privacy Policy for Nexus AI</h1>
-        <p><strong>Effective Date:</strong> May 14, 2026</p>
-
-        <p>Aetheltech ("we", "our", or "us") operates the Nexus AI mobile application. We respect your privacy and are committed to protecting your personal data. This policy explains how we handle the permissions required for the app to function.</p>
-
-        <h2>1. Data Collection & Permissions</h2>
-        <p>Nexus AI is a custom interface and productivity tool. To provide its core features, the app requests the following device permissions:</p>
-        <ul>
-            <li><strong>Microphone (RECORD_AUDIO):</strong> Used exclusively for voice commands to interact with the AI assistant. Audio data is processed locally or sent securely to Google's Gemini API for transcription and response generation. We do not record or listen to audio in the background.</li>
-            <li><strong>Camera:</strong> Used exclusively for scanning QR codes/barcodes to securely transfer configuration payloads (Neural Sync) between the PC and mobile unit. Images are processed locally and are never stored or uploaded to our servers.</li>
-            <li><strong>Location (ACCESS_COARSE_LOCATION / ACCESS_FINE_LOCATION):</strong> Used strictly while the app is actively on your screen to power the Heads-Up Display (HUD) Speedometer and Compass functionalities. Location data is processed locally on your device and is never stored, tracked, or shared.</li>
-            <li><strong>Query All Packages:</strong> Used to populate the internal System Registry (App Drawer) so you can launch your installed applications directly from the Nexus interface.</li>
-        </ul>
-
-        <h2>2. Third-Party Services</h2>
-        <p>The app connects to authorized third-party APIs based on user-provided keys. These include:</p>
-        <ul>
-            <li><strong>Google Gemini API:</strong> For processing AI chat and voice interactions.</li>
-            <li><strong>Printify / Etsy APIs:</strong> For users utilizing the Merch Factory module.</li>
-            <li><strong>Firebase:</strong> For cloud-syncing user preferences and validating Nexus Pro licenses.</li>
-            <li><strong>Google AdMob:</strong> For displaying advertisements to non-Pro users.</li>
-        </ul>
-
-        <h2>3. Data Security & Storage</h2>
-        <p>Your API keys, preferences, and chat history are stored locally on your device using encrypted storage. If you create an account, basic authentication data is stored securely via Firebase. <strong>We do not sell, rent, or distribute your personal data to data brokers or marketing agencies.</strong></p>
-
-        <h2>4. Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, please contact us at: <strong>aetheltech@gmail.com</strong></p>
+  <div class="wrap">
+    <div class="eyebrow">Aetheltech Legal &amp; Data Protection</div>
+    <h1>Privacy Policy &amp; GDPR Notice</h1>
+    <div class="meta">
+      <strong>Effective Date:</strong> November 22, 2026 &nbsp;|&nbsp;
+      <strong>Scope:</strong> Aetheltech Web Portal, Argus Trading Platform &amp; Nexus AI
     </div>
+
+    <p>
+      Aetheltech (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;) develops and operates the
+      <strong>Aetheltech Web Portal</strong>, the <strong>Argus Trading Platform</strong> desktop application,
+      and the <strong>Nexus AI</strong> desktop and Android mobile applications. We are committed to
+      local-first privacy and compliance with the European Union General Data Protection Regulation
+      (<strong>GDPR, Regulation (EU) 2016/679</strong>) and applicable Greek data protection law.
+    </p>
+
+    <div class="notice-box">
+      <strong>Core Architecture Principle:</strong> Aetheltech software is engineered local-first. Your broker
+      credentials, third-party API keys, trading ledgers, and personal workspace files are stored encrypted on
+      your own device. <strong>We do not sell, rent, or trade your personal data to data brokers or marketing agencies.</strong>
+    </div>
+
+    <h2>1. Data Controller &amp; Contact</h2>
+    <p>
+      For all privacy inquiries, GDPR data-subject requests, or deletion requests, contact the Data Controller:
+    </p>
+    <ul>
+      <li><strong>Entity:</strong> Aetheltech Software &amp; Autonomous Systems (Athens, Greece)</li>
+      <li><strong>Email:</strong> <a href="mailto:aetheltech@gmail.com">aetheltech@gmail.com</a></li>
+    </ul>
+
+    <h2>2. Aetheltech Web Portal, Cookies &amp; Partner Links</h2>
+    <ul>
+      <li><strong>Essential Operation:</strong> The portal fetches public release metadata (aggregate download counts) directly from the public GitHub Releases API without transmitting personal identifiers.</li>
+      <li><strong>Optional Analytics (Opt-In):</strong> Under EU ePrivacy and GDPR rules, optional usage analytics (such as Firebase Analytics) are only activated where explicit user consent is granted.</li>
+      <li><strong>Affiliate &amp; Partner Disclosures:</strong> The portal may include verified partner or affiliate links (including Impact Radius or infrastructure partners). Clicking an outbound partner link is subject to that third party&rsquo;s privacy and cookie policies.</li>
+    </ul>
+
+    <h2>3. Argus Trading Platform (Windows Desktop)</h2>
+    <ul>
+      <li><strong>Local Encrypted Broker Vault:</strong> Credentials for Alpaca Markets and supported MetaTrader 5 (MT5) brokers are encrypted exclusively on your local Windows machine using OS-level Windows DPAPI (Electron <code>safeStorage</code>). Credentials are never uploaded to Aetheltech servers.</li>
+      <li><strong>Local Execution &amp; Compliance Records:</strong> Trade ledgers (SQLite), historical backtest caches, Compliance &amp; Prop Firm Equity Guard rules, and the credential-free local status file (<code>argus_live_status.json</code>) remain stored locally in your user profile directory.</li>
+      <li><strong>Client Email &amp; Licensing:</strong> Your registered B2B client email is stored locally and transmitted to Aetheltech&rsquo;s Firebase Cloud Functions solely to verify 7-day license status and generate Stripe Checkout invoices for applicable Live Real-Money accounts (Demo, Paper, and Local Sandbox accounts are exempt).</li>
+      <li><strong>Payment Processing:</strong> All performance-fee settlements are processed directly by <strong>Stripe</strong>. Aetheltech never sees, receives, or stores credit card or banking credentials.</li>
+      <li><strong>Non-Advisory Notice:</strong> Argus Trading Platform is an automated technical execution and telemetry tool, not a financial advisor or licensed brokerage.</li>
+    </ul>
+
+    <h2>4. Nexus AI (Desktop &amp; Android Mobile Permissions)</h2>
+    <p>
+      To provide its core local-first features, the Nexus AI mobile and desktop applications request only the
+      permissions required for active user-initiated actions:
+    </p>
+    <ul>
+      <li><strong>Microphone (<code>RECORD_AUDIO</code>):</strong> Used exclusively for voice commands to interact with the AI assistant. Audio is processed locally or sent securely to Google&rsquo;s Gemini API using your configured key for transcription and response generation. We do not record or listen to audio in the background.</li>
+      <li><strong>Camera:</strong> Used exclusively for scanning QR codes/barcodes to transfer configuration payloads (Neural Sync) between PC and mobile units. Images are processed locally and are never stored or uploaded to our servers.</li>
+      <li><strong>Location (<code>ACCESS_COARSE_LOCATION</code> / <code>ACCESS_FINE_LOCATION</code>):</strong> Used strictly while the app is actively open on your screen to power Heads-Up Display (HUD) Speedometer and Compass features. Location data is processed locally on your device and is never stored, tracked, or shared.</li>
+      <li><strong>Query All Packages:</strong> Used to populate the internal System Registry (App Drawer) so you can launch installed applications directly from the Nexus interface.</li>
+    </ul>
+
+    <h2>5. Third-Party Services &amp; Processors</h2>
+    <p>
+      Depending on which modules or user-supplied API keys you enable, our applications may communicate
+      directly with authorized third-party services under their respective privacy policies:
+    </p>
+    <ul>
+      <li><strong>Google Firebase:</strong> Authentication, license-status verification, and optional opt-in portal analytics.</li>
+      <li><strong>Stripe:</strong> Secure payment processing and invoice receipts for Argus Live accounts.</li>
+      <li><strong>Google Gemini API:</strong> Processing AI chat and voice interactions (via user-configured keys in Nexus AI).</li>
+      <li><strong>Official Broker &amp; Market Data Endpoints:</strong> Alpaca Markets API, local MetaTrader 5 terminals, Binance/Kraken public market data, and TradingView embedded chart widgets.</li>
+      <li><strong>Printify / Etsy APIs:</strong> Only for Nexus AI users who explicitly enable the Merch Factory integration.</li>
+      <li><strong>Google AdMob:</strong> Used to display advertisements to non-Pro users of the Nexus AI mobile application.</li>
+    </ul>
+
+    <h2>6. Legal Basis (GDPR Art. 6) &amp; Data Retention</h2>
+    <ul>
+      <li><strong>Performance of a Contract (Art. 6(1)(b)):</strong> Processing client email and license status to provide Argus licensing and Stripe billing.</li>
+      <li><strong>Consent (Art. 6(1)(a)):</strong> Optional web analytics, device permissions (microphone, camera, location), and voluntary support inquiries.</li>
+      <li><strong>Legal Obligation (Art. 6(1)(c)):</strong> Retaining invoicing and tax compliance records required under Greek and EU law.</li>
+      <li><strong>Retention:</strong> Local application files remain on your device until you clear your vault or uninstall the software. Cloud licensing metadata is retained only while your license or statutory accounting period remains active.</li>
+    </ul>
+
+    <h2>7. Your Rights Under GDPR (EU / EEA Residents)</h2>
+    <p>Under the GDPR, you have the right to:</p>
+    <ul>
+      <li><strong>Access</strong> the personal data we hold about you (e.g., license email records).</li>
+      <li><strong>Rectify</strong> inaccurate or incomplete personal data.</li>
+      <li><strong>Request Erasure</strong> (&ldquo;Right to be Forgotten&rdquo;) where data is no longer necessary or legally required.</li>
+      <li><strong>Restrict or Object</strong> to specific processing activities, and request <strong>Data Portability</strong>.</li>
+      <li><strong>Withdraw Consent</strong> at any time (for example, revoking Android permissions or analytics consent).</li>
+      <li><strong>Lodge a Complaint</strong> with your local EU supervisory authority, including the <strong>Hellenic Data Protection Authority (HDPA / ΑΠΔΠΧ)</strong> at <a href="https://www.dpa.gr" target="_blank" rel="noopener noreferrer">www.dpa.gr</a>.</li>
+    </ul>
+
+    <h2>8. Policy Updates</h2>
+    <p>
+      We may update this Privacy Policy to reflect new software releases or regulatory changes. The effective
+      date at the top of this page indicates the latest revision. For questions or to exercise your GDPR
+      rights, email <a href="mailto:aetheltech@gmail.com">aetheltech@gmail.com</a>.
+    </p>
+
+    <a class="back-link" href="./">← Return to Aetheltech Portal</a>
+  </div>
 </body>
 </html>
