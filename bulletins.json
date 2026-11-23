@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-23T18:30:00Z",
+  "latestArgusVersion": "1.1.7",
+  "portalUrl": "https://aetheltech-lab.github.io/Aetheltech_Portal/",
+  "bulletins": [
+    {
+      "id": "ftmo-thanksgiving-2026-thu",
+      "brokers": ["FTMO_MT5"],
+      "severity": "HIGH",
+      "category": "HOLIDAY_HOURS",
+      "title": "FTMO THANKSGIVING SCHEDULE — THU 26 NOV (GMT+2)",
+      "tickerText": "FTMO THANKSGIVING THU 26 NOV (GMT+2): US Stocks CLOSED all day · US30/100/500 close 20:00 · DXY 20:15 · UKOIL 20:30 · Metals (Gold/Silver) & USOIL close 21:30 · GER40/UK100 close 23:00",
+      "details": [
+        "All times are in MetaTrader platform time (GMT+2).",
+        "Equities I CFD (US Stocks) & Agriculture: CLOSED whole day.",
+        "US30.cash, US100.cash, US500.cash, JP225.cash, US2000.cash: early close at 20:00.",
+        "DXY.cash: early close at 20:15 · UKOIL.cash: early close at 20:30.",
+        "Metals CFD (XAU/USD, XAG/USD), USOIL.cash, NATGAS.cash, HEATOIL.c: early close at 21:30.",
+        "GER40.cash & UK100.cash: early close at 23:00."
+      ],
+      "affectedSymbols": ["XAU/USD", "XAG/USD", "WTI/USD", "SPY", "QQQ", "NVDA", "TSLA", "AAPL"],
+      "officialUrl": "https://ftmo.com/en/trading-updates/",
+      "startsAt": "2026-11-23T00:00:00Z",
+      "expiresAt": "2026-11-27T01:00:00Z"
+    },
+    {
+      "id": "ftmo-thanksgiving-2026-fri",
+      "brokers": ["FTMO_MT5"],
+      "severity": "HIGH",
+      "category": "EARLY_CLOSE",
+      "title": "FTMO BLACK FRIDAY EARLY CLOSE — FRI 27 NOV (GMT+2)",
+      "tickerText": "FTMO BLACK FRIDAY FRI 27 NOV (GMT+2): US Stocks close 20:00 · Indices/DXY close 20:15 · Metals (Gold/Silver) & USOIL close 21:45 · UKOIL closes 22:00 — Adjust manual positions before early close",
+      "details": [
+        "All times are in MetaTrader platform time (GMT+2).",
+        "Equities I CFD (US Stocks): early close at 20:00.",
+        "DXY.cash, US30.cash, US100.cash, US500.cash, JP225.cash, US2000.cash: early close at 20:15.",
+        "Metals CFD (XAU/USD, XAG/USD), USOIL.cash, NATGAS.cash, HEATOIL.c: early close at 21:45.",
+        "UKOIL.cash: early close at 22:00.",
+        "CORN.c, SOYBEAN.c, WHEAT.c: late open 16:35, early close 20:05 · COTTON.c: late open 15:00, early close 20:30.",
+        "PROP GUARD TIP: Standard Pre-Weekend Auto-Flat triggers near 23:15 GMT+2 — disarm Autopilot or flatten Metals/Stocks before 19:30 GMT+2 if avoiding weekend gaps."
+      ],
+      "affectedSymbols": ["XAU/USD", "XAG/USD", "WTI/USD", "SPY", "QQQ", "NVDA", "TSLA", "AAPL"],
+      "officialUrl": "https://ftmo.com/en/trading-updates/",
+      "startsAt": "2026-11-23T00:00:00Z",
+      "expiresAt": "2026-11-28T06:00:00Z"
+    },
+    {
+      "id": "us-thanksgiving-2026-general",
+      "brokers": ["ALL"],
+      "excludeBrokers": ["FTMO_MT5"],
+      "severity": "HIGH",
+      "category": "HOLIDAY_HOURS",
+      "title": "US THANKSGIVING MARKET HOURS — THU 26 & FRI 27 NOV",
+      "tickerText": "US THANKSGIVING ADVISORY: NYSE/NASDAQ Equities CLOSED Thu 26 Nov & EARLY CLOSE 13:00 ET (20:00 GMT+2) Fri 27 Nov · Expect early Metals/Oil closes & wider holiday spreads across MT5/CFD brokers",
+      "details": [
+        "Thursday, 26 Nov 2026: US Equity markets (SPY, QQQ, NVDA, TSLA, AAPL & ETFs) are CLOSED all day.",
+        "Friday, 27 Nov 2026: US Equity markets close early at 13:00 ET (20:00 GMT+2).",
+        "CME Metals (Gold/Silver) and Energy (WTI Oil) observe shortened holiday sessions on both Thursday and Friday — verify exact cutoff times in your broker's MT5 contract specifications.",
+        "Crypto markets (24/7) remain open, though liquidity may thin during US holiday hours."
+      ],
+      "affectedSymbols": ["SPY", "QQQ", "NVDA", "TSLA", "AAPL", "XAU/USD", "XAG/USD", "WTI/USD"],
+      "officialUrl": "https://www.nyse.com/markets/hours-calendars",
+      "startsAt": "2026-11-23T00:00:00Z",
+      "expiresAt": "2026-11-28T06:00:00Z"
+    },
+    {
+      "id": "mt5-overnight-swap-reminder",
+      "brokers": ["ALL_MT5"],
+      "severity": "INFO",
+      "category": "SWAP_NOTICE",
+      "title": "MT5 OVERNIGHT ROLLOVER & SWAP ADJUSTMENTS",
+      "tickerText": "BROKER ADVISORY: Overnight rollover swaps & dividend adjustments vary by broker and liquidity provider — verify current symbol contract specs in MT5 before holding positions past rollover",
+      "details": [
+        "Brokers regularly adjust overnight swap rates to reflect interest rate differentials, triple-swap Wednesdays, and equity dividend adjustments.",
+        "Right-click any symbol in MT5 Market Watch → Specification to inspect current Swap Long / Swap Short rates before holding overnight."
+      ],
+      "affectedSymbols": [],
+      "officialUrl": "https://ftmo.com/en/trading-updates/",
+      "startsAt": "2026-11-23T00:00:00Z",
+      "expiresAt": "2026-12-31T23:59:59Z"
+    }
+  ]
+}
